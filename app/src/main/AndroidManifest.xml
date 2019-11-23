@@ -14,6 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.longquestions.LongQuestionsActivity"></activity>
         <activity android:name=".ui.SelectAmountActivity" />
+        <activity android:name=".ui.home.Confirm"></activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1021618290323",
+    "firebase_url": "https://durhack-2019.firebaseio.com",
+    "project_id": "durhack-2019",
+    "storage_bucket": "durhack-2019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021618290323:android:c0692dc1eb3ba999cf1766",
+        "android_client_info": {
+          "package_name": "com.loopserv.durhack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021618290323-16ld1d3s1pks74jpkobd030bccu6c3j1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5Sc-hGg1NRFIYppO0q2ihBJA2qSrsdM0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021618290323-16ld1d3s1pks74jpkobd030bccu6c3j1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

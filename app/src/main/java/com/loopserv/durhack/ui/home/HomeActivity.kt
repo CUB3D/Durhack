@@ -14,6 +14,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R
             .layout.activity_home)
         home_apply.setOnClickListener { startActivity(Intent(this, ApplyActivity :: class.java)) }
+        window.statusBarColor = Color.parseColor("#fafafa")
+
     }
 }
-

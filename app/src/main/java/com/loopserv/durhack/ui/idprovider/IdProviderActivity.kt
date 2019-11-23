@@ -10,7 +10,9 @@ import android.provider.MediaStore
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.bumptech.glide.Glide
+import com.loopserv.durhack.ui.StateManager
 import com.loopserv.durhack.ui.home.HomeActivity
+import com.loopserv.durhack.ui.longquestions.LongQuestionsActivity
 import kotlinx.android.synthetic.main.activity_id_provider.*
 import java.io.File
 
@@ -24,27 +26,23 @@ class IdProviderActivity : AppCompatActivity() {
         setContentView(com.loopserv.durhack.R.layout.activity_id_provider)
         window.statusBarColor = Color.parseColor("#fafafa")
 
-
-        startActivityForResult(Intent(MediaStore.ACTION_IMAGE_CAPTURE).apply {
-            val photo = File(externalCacheDir, "Pic.jpg")
-            val apkURI = FileProvider.getUriForFile(
-                this@IdProviderActivity, this@IdProviderActivity.getApplicationContext()
-                    .getPackageName().toString() + ".provider", photo
-            )
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-
-
-            putExtra(
-                MediaStore.EXTRA_OUTPUT,
-                apkURI
-            )
-            imageUri = Uri.fromFile(photo)
-        }, 0)
-
-        id_next.isEnabled = false
-
+        id_next.text = "Take picture"
         id_next.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
+            startActivityForResult(Intent(MediaStore.ACTION_IMAGE_CAPTURE).apply {
+                val photo = File(externalCacheDir, "Pic.jpg")
+                val apkURI = FileProvider.getUriForFile(
+                    this@IdProviderActivity, this@IdProviderActivity.getApplicationContext()
+                        .getPackageName().toString() + ".provider", photo
+                )
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+
+
+                putExtra(
+                    MediaStore.EXTRA_OUTPUT,
+                    apkURI
+                )
+                imageUri = Uri.fromFile(photo)
+            }, 0)
         }
     }
 
@@ -61,7 +59,12 @@ class IdProviderActivity : AppCompatActivity() {
                 .load(imageUri)
                 .into(id_image)
 
-            id_next.isEnabled = true
+            StateManager.applicationIdUrl = imageUri
+
+            id_next.text = "Next"
+            id_next.setOnClickListener {
+                startActivity(Intent(this, LongQuestionsActivity::class.java))
+            }
         }
     }
 }

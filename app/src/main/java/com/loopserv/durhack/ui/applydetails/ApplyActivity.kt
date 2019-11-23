@@ -20,6 +20,8 @@ class ApplyActivity : AppCompatActivity() {
             StateManager.applicationAddress = apply_address.text.toString()
             StateManager.applicationDob = apply_dob.text.toString()
             StateManager.applicationName = apply_name.text.toString()
+            StateManager.applicationRepayment = apply_replayment.text.toString()
+            StateManager.applicationAmount = circular.currentProgress.toString()
             startActivity(Intent(this, IdProviderActivity::class.java))
         }
     }

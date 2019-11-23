@@ -20,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
         if(FirebaseAuth.getInstance().currentUser != null) {
             startActivity(Intent(this, HomeActivity::class.java))
+            finish()
         }
 
         login_username.requestFocus()
@@ -31,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(txt, pass)
                 .addOnSuccessListener {
                     startActivity(Intent(this, HomeActivity::class.java))
+                    finish()
                 }
                 .addOnFailureListener {
                     Toast.makeText(this, "Unable to login", Toast.LENGTH_SHORT).show()

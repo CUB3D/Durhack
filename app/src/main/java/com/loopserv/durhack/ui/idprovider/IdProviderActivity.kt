@@ -29,7 +29,7 @@ class IdProviderActivity : AppCompatActivity() {
         id_next.text = "Take picture"
         id_next.setOnClickListener {
             startActivityForResult(Intent(MediaStore.ACTION_IMAGE_CAPTURE).apply {
-                val photo = File(externalCacheDir, "Pic.jpg")
+                val photo = File(externalCacheDir, "Pic-${System.currentTimeMillis()}.jpg")
                 val apkURI = FileProvider.getUriForFile(
                     this@IdProviderActivity, this@IdProviderActivity.getApplicationContext()
                         .getPackageName().toString() + ".provider", photo
@@ -64,6 +64,7 @@ class IdProviderActivity : AppCompatActivity() {
             id_next.text = "Next"
             id_next.setOnClickListener {
                 startActivity(Intent(this, LongQuestionsActivity::class.java))
+                finish()
             }
         }
     }

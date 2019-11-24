@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.loopserv.durhack.R
 import com.loopserv.durhack.ui.StateManager
+import com.loopserv.durhack.ui.home.Confirm
 import kotlinx.android.synthetic.main.activity_long_questions.*
 
 class LongQuestionsActivity : AppCompatActivity() {
@@ -16,10 +17,11 @@ class LongQuestionsActivity : AppCompatActivity() {
         window.statusBarColor = Color.parseColor("#fafafa")
 
         longq_next.setOnClickListener {
-            StateManager.how = longq_how.text.toString()
+            StateManager.howYouWillUse = longq_how.text.toString()
             StateManager.next = longq_next.text.toString()
-            StateManager.reason = longq_reason .text.toString()
+            StateManager.reason = longq_reason.text.toString()
             startActivity(Intent(this, Confirm::class.java))
+            finish()
         }
     }
 }

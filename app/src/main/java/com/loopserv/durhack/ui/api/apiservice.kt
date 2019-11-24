@@ -7,6 +7,6 @@ interface apiservice {
     @POST("/api/create_user")
     suspend fun getUser(@Body data: FirebaseDto): User?
 
-//    @POST("/api/create_application")
-//    suspend fun createApplication(@Body data: CreditApplicationRequest)
+    @POST("/api/add_application")
+    suspend fun createApplication(@Body data: CreditApplicationRequest)
 }

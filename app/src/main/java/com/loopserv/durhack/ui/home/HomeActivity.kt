@@ -24,10 +24,8 @@ class HomeActivity : AppCompatActivity() {
         home_apply.setOnClickListener { startActivity(Intent(this, ApplyActivity::class.java)) }
         window.statusBarColor = Color.parseColor("#fafafa")
 
-        FirebaseAuth.getInstance().currentUser!!.getIdToken(false).addOnSuccessListener {
-            GlobalScope.launch {
-                println(API.client.getUser(FirebaseDto(it.token!!)))
-            }
+        GlobalScope.launch {
+            println(API.client.getUser(FirebaseDto(FirebaseAuth.getInstance().currentUser!!.uid)))
         }
     }
 }

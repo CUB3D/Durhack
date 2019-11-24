@@ -8,9 +8,11 @@ import com.loopserv.durhack.R
 import com.loopserv.durhack.ui.StateManager
 import com.loopserv.durhack.ui.api.API
 import com.loopserv.durhack.ui.api.CreditApplicationRequest
+import com.loopserv.durhack.ui.api.User
 import kotlinx.android.synthetic.main.activity_confirm_id.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.greenrobot.eventbus.EventBus
 
 class Confirm : AppCompatActivity() {
 
@@ -46,6 +48,8 @@ class Confirm : AppCompatActivity() {
                         )
                     )
                 )
+
+                EventBus.getDefault().post(User(emptyList()))
 
                 this@Confirm.runOnUiThread {
                     finish()
